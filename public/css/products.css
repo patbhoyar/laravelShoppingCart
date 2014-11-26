@@ -1,9 +1,54 @@
-.productSummaryImage{
+.productSummaryImage, .productDetailImage{
     float: left;
     padding: 10px;
 }
 
-.productSummaryDetails{
+.productSummaryDetails, .productDetails{
     float: left;
     margin-left: 20px;
 }
+
+.userReviewContainer{
+    width: 100%;
+    height: auto;
+    background: #eee;
+    padding: 15px 20px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.userName{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.reviewTimestamp{
+    font-style: italic;
+    color: #999;
+}
+
+/* ======================= XS ======================= */
+@media(max-width:767px){
+    .paddingForMenu{
+        width: 100%;
+        height: 350px;
+    }
+
+    .productSummaryDetails, .productDetails{
+        margin-left: 0px;
+    }
+
+    .productSummaryContainer, .productDetailContainer{
+        text-align: center;
+    }
+}
+
+/* ======================= SM ======================= */
+@media(min-width:768px){}
+
+/* ======================= MD ======================= */
+@media(min-width:992px){}
+
+/* ======================= LG ======================= */
+@media(min-width:1200px){}

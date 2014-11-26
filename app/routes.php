@@ -1,23 +1,24 @@
 <?php
-use library\abstractClasses\menuItems;
 
-Route::get('/', function()
-{
-	return View::make('home', array('title' => 'MyCart', 'menuActive' => menuItems::MENU_HOME));
-});
-Route::get('/home', function()
-{
-    return View::make('home', array('title' => 'MyCart', 'menuActive' => menuItems::MENU_HOME));
-});
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
-Route::get('/products', function(){
-    return View::make('products.index', array('title' => 'Products', 'menuActive' => menuItems::MENU_PRODUCTS, 'products' => Product::all()));
-});
+// ======================== Products ========================
+Route::get('products', array('as' => 'products', 'uses' => 'ProductController@index'));
+Route::get('/product/{id}', 'ProductController@show');
 
-Route::get('/categories', function(){
-    return View::make('categories.index', array('title' => 'MyCart Categories', 'menuActive' => menuItems::MENU_CATEGORIES, 'categories' => Category::all()));
-});
 
-Route::get('/brands', function(){
-    return View::make('brands.index', array('title' => 'MyCart Brands', 'menuActive' => menuItems::MENU_BRANDS, 'brands' => Brand::all()));
-});
+// ======================== Categories ========================
+Route::get('/categories', array('as' => 'categories', 'uses' => 'CategoryController@index'));
+
+
+// ======================== Brands ========================
+Route::get('/brands', array('as' => 'brands', 'uses' => 'BrandController@index'));
+Route::get('/brand/{id}', 'BrandController@showProductsWithBrand');
+
+
+// ======================== User ========================
+Route::get('/login', 'User@displayLogin');
+Route::get('/signup', 'User@displaySignUp');
+
+

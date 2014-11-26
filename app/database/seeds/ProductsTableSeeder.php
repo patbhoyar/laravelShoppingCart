@@ -73,6 +73,102 @@ class ProductsTableSeeder extends \Illuminate\Database\Seeder{
                 'discount'      =>  25.00,
                 'rating'        =>  4.5,
                 'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Note 4',
+                'description'   =>  'This is the new Galaxy Note!',
+                'category'      =>  1,
+                'brand'         =>  2,
+                'image'         =>  'images/Note4.jpeg',
+                'price'         =>  61000,
+                'discount'      =>  10.00,
+                'rating'        =>  4.5,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Note 3',
+                'description'   =>  'This is the new Note 3!',
+                'category'      =>  1,
+                'brand'         =>  2,
+                'image'         =>  'images/Note4.jpeg',
+                'price'         =>  58000,
+                'discount'      =>  31.00,
+                'rating'        =>  4.2,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Xperia Z3',
+                'description'   =>  'This is the new Xperia Z3!',
+                'category'      =>  1,
+                'brand'         =>  12,
+                'image'         =>  'images/Z3.jpeg',
+                'price'         =>  51000,
+                'discount'      =>  3.00,
+                'rating'        =>  4.4,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Redmi 1S',
+                'description'   =>  'This is the new Xiomi Redmi 1S!',
+                'category'      =>  1,
+                'brand'         =>  4,
+                'image'         =>  'images/redmi.jpeg',
+                'price'         =>  5999,
+                'discount'      =>  0.00,
+                'rating'        =>  3.9,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'ZenFone 5',
+                'description'   =>  'This is the new Asus ZenFone 5!',
+                'category'      =>  1,
+                'brand'         =>  7,
+                'image'         =>  'images/zenfone.jpeg',
+                'price'         =>  58000,
+                'discount'      =>  31.00,
+                'rating'        =>  4.2,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Lumia 555',
+                'description'   =>  'This is the new Nokia Lumia 555!',
+                'category'      =>  1,
+                'brand'         =>  11,
+                'image'         =>  'images/lumia.jpeg',
+                'price'         =>  40000,
+                'discount'      =>  24.00,
+                'rating'        =>  3.2,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'One M8',
+                'description'   =>  'This is the new HTC One M8!',
+                'category'      =>  1,
+                'brand'         =>  8,
+                'image'         =>  'images/m8.jpeg',
+                'price'         =>  44000,
+                'discount'      =>  3.00,
+                'rating'        =>  4.7,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'Blackberry',
+                'description'   =>  'This is the new Blackberry!',
+                'category'      =>  1,
+                'brand'         =>  6,
+                'image'         =>  'images/blackberry.jpeg',
+                'price'         =>  31000,
+                'discount'      =>  21.00,
+                'rating'        =>  3.1,
+                'sellerId'      =>  1
             )
         );
 
