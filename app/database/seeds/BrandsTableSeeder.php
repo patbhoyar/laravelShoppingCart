@@ -26,7 +26,8 @@ class BrandsTableSeeder extends \Illuminate\Database\Seeder {
             array('brandName' => 'Nokia'),
             array('brandName' => 'Sony'),
             array('brandName' => 'LG'),
-            array('brandName' => 'Google')
+            array('brandName' => 'Google'),
+            array('brandName' => 'Motorola')
         );
 
         DB::table('brands')->insert($data);

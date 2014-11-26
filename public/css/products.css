@@ -1,0 +1,9 @@
+.productSummaryImage{
+    float: left;
+    padding: 10px;
+}
+
+.productSummaryDetails{
+    float: left;
+    margin-left: 20px;
+}

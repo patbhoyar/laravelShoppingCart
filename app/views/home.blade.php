@@ -1,2 +1,2 @@
-<?php
-echo "Show all products";
+@extends('master')
+
