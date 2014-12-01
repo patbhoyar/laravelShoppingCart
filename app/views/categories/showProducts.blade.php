@@ -4,7 +4,7 @@
 @section('pageContent')
 
 <div class="container">
-    <h2>Displaying products by: {{ $title }}</h2>
+    <h2>Displaying {{ $title }}</h2>
 </div>
 
 <div class="container-fluid">

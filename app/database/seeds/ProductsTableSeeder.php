@@ -169,6 +169,30 @@ class ProductsTableSeeder extends \Illuminate\Database\Seeder{
                 'discount'      =>  21.00,
                 'rating'        =>  3.1,
                 'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'iPad Air',
+                'description'   =>  'This is the new iPad! Its the thinnest iPad ever.',
+                'category'      =>  2,
+                'brand'         =>  1,
+                'image'         =>  'images/iPadAir.jpeg',
+                'price'         =>  28000,
+                'discount'      =>  0.00,
+                'rating'        =>  4.1,
+                'sellerId'      =>  1
+            ),
+            array(
+                'productType'   =>  0,
+                'name'          =>  'iPad Mini',
+                'description'   =>  'This is the new iPad Mini!',
+                'category'      =>  2,
+                'brand'         =>  1,
+                'image'         =>  'images/iPadMini.jpeg',
+                'price'         =>  31000,
+                'discount'      =>  2.00,
+                'rating'        =>  4.2,
+                'sellerId'      =>  1
             )
         );
 

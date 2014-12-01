@@ -84,5 +84,9 @@ class CategoryController extends \BaseController {
 		//
 	}
 
-
+    public function showProductsInCategory($id){
+        $category = Category::find($id)->categoryName;
+        $products = DB::table('products')->where('category', '=', $id)->paginate(2);
+        return View::make('categories.showProducts', array('title' => $category, 'menuActive' => menuActive::MENU_PRODUCTS, 'products' => $products));
+    }
 }

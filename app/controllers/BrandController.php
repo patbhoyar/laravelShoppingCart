@@ -85,7 +85,7 @@ class BrandController extends \BaseController {
 
     public function showProductsWithBrand($id){
         $brand = Brand::find($id)->brandName;
-        $products = DB::table('products')->where('brand', '=', $id)->get();
+        $products = DB::table('products')->where('brand', '=', $id)->paginate(2);
         return View::make('brands.showProducts', array('title' => $brand, 'menuActive' => menuActive::MENU_PRODUCTS, 'products' => $products));
     }
 

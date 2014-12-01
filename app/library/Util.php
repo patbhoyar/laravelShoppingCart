@@ -19,4 +19,20 @@ class Util {
         }
         return $op;
     }
+
+    public static function compressText($text, $size){
+        $size -= 10;
+
+        if(strlen($text) <= $size){
+            return $text;
+        }
+
+        $x = strpos($text, " ", $size);
+
+        if($x !== FALSE){
+            return substr($text, 0, $x)." ...";
+        }else{
+            return $text;
+        }
+    }
 } 

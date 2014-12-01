@@ -54,15 +54,15 @@
                 <a href="home" class="navbar-brand">MyCart</a>
 
                 <ul class="nav navbar-nav">
-                    <li class="{{ $homeActive }}"><a href="home">Home</a></li>
+                    <li class="{{ $homeActive }}"><a href="{{ route('home') }}">Home</a></li>
                     <li class="{{ $productsActive }}"><a href="{{ route('products') }}">Products</a></li>
                     <li class="{{ $categoryActive }}"><a href="{{ route('categories') }}">Categories</a></li>
                     <li class="{{ $brandsActive }}"><a href="{{ route('brands') }}">Brands</a></li>
-                    <li class="{{ $aboutusActive }}"><a href="aboutus">About Us</a></li>
-                    <li class="{{ $contactActive }}"><a href="contact">Contact</a></li>
+                    <li class="{{ $aboutusActive }}"><a href="{{ route('about') }}">About Us</a></li>
+                    <li class="{{ $contactActive }}"><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
 
-                <div class="navbar-text pull-right"> <a href="cart">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></div>
+                <div class="navbar-text pull-right"> <a href="cart">Cart <span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">42</span></a></div>
                 <div class="navbar-text pull-right"><a href="login">Login <span class="glyphicon glyphicon-user"></span></a></div>
 
             </div>

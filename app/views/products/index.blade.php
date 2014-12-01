@@ -12,11 +12,16 @@
                 <div class="productDescription">{{ $product->description }}</div>
                 <div class="productPricing"><em><h4> <?php echo Util::calculateDiscount($product->price, $product->discount); ?> </h4></em></div>
                 <div>
-                    <a href="product/123" class="btn btn-info"><i class="icon-white icon-shopping-cart"></i> Add to Cart  </a>
+                    <a href="product/{{ $product->id }}" class="btn btn-primary"><i class="glyphicon glyphicon-white glyphicon-zoom-in"></i> Buy Now</a>
+                    <a href="addToCart" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
+                    <a href="addtoWishList" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
                 </div>
             </div>
         </div>
         <hr/>
     @endforeach
+    <div class="pull-right">
+        {{ $products->links() }}
+    </div>
 </div>
 @stop

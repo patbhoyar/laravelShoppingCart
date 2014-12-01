@@ -13,13 +13,15 @@
             <div class="productDescription">{{ $product->description }}</div>
             <div class="productPricing"><em><h4> <?php Util::calculateDiscount($product->price, $product->discount); ?> </h4></em></div>
             <div>
-                <a href="product/123" class="btn btn-info"><i class="icon-white icon-shopping-cart"></i> Add to Cart  </a>
+                <a href="product/123" class="btn btn-primary"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
+                <a href="addtoWishList" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
             </div>
         </div>
     </div>
 
     <hr/>
 
+    <?php $rating = 0; ?>
     <div class="row">
         <h3>Reviews for {{ $product->name }}:</h3>
         @if(sizeof($reviews) == 0)
@@ -38,7 +40,11 @@
                         {{ $review->review }}
                     </div>
                 </div>
+                <?php $rating += $review->rating; ?>
             @endforeach
         @endif
+
+        <?php $reviewersCount = (count($reviews) === 0)?1:count($reviews); ?>
+        <div class="row">Total Rating : {{ $rating/$reviewersCount }}</div>
     </div>
 @stop

@@ -10,7 +10,7 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('products.index', array('title' => 'Products', 'menuActive' => menuActive::MENU_PRODUCTS, 'products' => Product::all()));
+        return View::make('products.index', array('title' => 'Products', 'menuActive' => menuActive::MENU_PRODUCTS, 'products' => Product::paginate(5)));
 	}
 
 
