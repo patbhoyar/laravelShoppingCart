@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
             $table->string('lastLoggedIn');
             $table->string('loginFailAttempts')->default(0);
             $table->softDeletes();
+            $table->rememberToken();
 			$table->timestamps();
 		});
 	}

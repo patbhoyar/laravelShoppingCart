@@ -91,4 +91,26 @@ class UserController extends \BaseController {
         return View::make('users.signup', array('title' => 'SignUp MyCart', 'menuActive' => menuActive::MENU_NONE));
     }
 
+    public function displayCart(){
+        return View::make('users.cart', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_NONE));
+    }
+
+    public function processLogin(){
+        $user = array(
+            'email' => Input::get('email'),
+            'password' => Input::get('password')
+        );
+
+        if (Auth::attempt($user)) {
+            return Redirect::route('home');
+        }else{
+            dd("hhh");
+        }
+    }
+
+    public function processLogout(){
+        Auth::logout();
+        return Redirect::route('home');
+    }
+
 }

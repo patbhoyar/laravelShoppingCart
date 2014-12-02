@@ -24,7 +24,7 @@
 
     <?php
         use library\abstractClasses\menuActive;
-        $homeActive = $productsActive = $categoryActive = $brandsActive = $aboutusActive = $contactActive = $cartActive = '';
+        $homeActive = $productsActive = $categoryActive = $brandsActive = $wishlistActive = $aboutusActive = $contactActive = $cartActive = '';
         switch($menuActive){
             case menuActive::MENU_HOME:
                 $homeActive = 'active';
@@ -37,6 +37,9 @@
                 break;
             case menuActive::MENU_BRANDS:
                 $brandsActive = 'active';
+                break;
+            case menuActive::MENU_WISHLIST:
+                $wishlistActive = 'active';
                 break;
             case menuActive::MENU_ABOUTUS:
                 $aboutusActive = 'active';
@@ -58,12 +61,23 @@
                     <li class="{{ $productsActive }}"><a href="{{ route('products') }}">Products</a></li>
                     <li class="{{ $categoryActive }}"><a href="{{ route('categories') }}">Categories</a></li>
                     <li class="{{ $brandsActive }}"><a href="{{ route('brands') }}">Brands</a></li>
+                    <li class="{{ $wishlistActive }}"><a href="{{ route('wishlist') }}">Wishlist</a></li>
                     <li class="{{ $aboutusActive }}"><a href="{{ route('about') }}">About Us</a></li>
                     <li class="{{ $contactActive }}"><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
 
-                <div class="navbar-text pull-right"> <a href="cart">Cart <span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">42</span></a></div>
-                <div class="navbar-text pull-right"><a href="login">Login <span class="glyphicon glyphicon-user"></span></a></div>
+                <div class="navbar-text pull-right"> <a href="{{ route('cart') }}">Cart <span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">42</span></a></div>
+                <?php
+                    if(Auth::check()){
+                ?>
+                        <div class="navbar-text pull-right">{{ Auth::user()->email }} <span class="glyphicon glyphicon-user"></span> <a href="{{ route('logout') }}">(logout)</a></div>
+                <?php
+                    }else{
+                ?>
+                        <div class="navbar-text pull-right"> <a href="{{ route('login') }}">Login <span class="glyphicon glyphicon-user"></span></a></div>
+                <?php
+                    }
+                ?>
 
             </div>
         </div>

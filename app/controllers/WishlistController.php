@@ -1,7 +1,6 @@
 <?php
-use library\abstractClasses\menuActive;
 
-class ProductController extends \BaseController {
+class WishlistController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +9,7 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('products.index', array('title' => 'Products', 'menuActive' => menuActive::MENU_PRODUCTS, 'products' => Product::paginate(5)));
+		echo "My Wishlist";
 	}
 
 
@@ -44,10 +43,7 @@ class ProductController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        $product = Product::find($id);
-        self::incrementProductHits($product);
-        $reviews = DB::table('reviews')->leftJoin('userInfo', 'userInfo.id', '=', 'reviews.userId')->where('reviews.productId', '=', $id)->select('reviews.productId', 'userInfo.firstName', 'userInfo.lastName','reviews.rating', 'reviews.review', 'reviews.created_at')->get();
-        return View::make('products.show', array('title' => $product->name, 'menuActive' => menuActive::MENU_PRODUCTS, 'product' => $product, 'reviews' => $reviews));
+		//
 	}
 
 
@@ -86,9 +82,5 @@ class ProductController extends \BaseController {
 		//
 	}
 
-    public function incrementProductHits($product){
-        ++$product->hits;
-        $product->save();
-    }
 
 }

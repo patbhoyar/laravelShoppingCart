@@ -16,15 +16,15 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder{
 
             array(
                 'email'     =>  'wasim@gmail.com',
-                'password'  =>  'wasim'
+                'password'  =>  Hash::make('wasim')
             ),
             array(
                 'email'     =>  'sachin@gmail.com',
-                'password'  =>  'sachin'
+                'password'  =>  Hash::make('sachin')
             ),
             array(
                 'email'     =>  'saurav@gmail.com',
-                'password'  =>  'saurav'
+                'password'  =>  Hash::make('saurav')
             )
 
         );
