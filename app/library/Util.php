@@ -12,12 +12,19 @@ namespace library;
 class Util {
     public static function calculateDiscount($productPrice, $productDiscount){
         if($productDiscount > 0.00){
-            $price = number_format($productPrice - ($productPrice * $productDiscount/100));
-            $op = "<s>Rs.".number_format($productPrice)."</s> Rs.".$price." ($productDiscount % off)";
+            $op = "<s>Rs.".number_format($productPrice)."</s> Rs.".self::calculatePrice($productPrice, $productDiscount)." ($productDiscount % off)";
         }else{
             $op = "Rs.".number_format($productPrice);
         }
         return $op;
+    }
+
+    public static function calculatePrice($productPrice, $productDiscount){
+        if($productDiscount > 0.00){
+            return $productPrice - ($productPrice * $productDiscount/100);
+        }else{
+            return $productPrice;
+        }
     }
 
     public static function compressText($text, $size){

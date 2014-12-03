@@ -1,7 +1,3 @@
-<?php
-    use library\Util;
-    $totalPrice = 0;
-?>
 @extends('master')
 
 @section('pageContent')

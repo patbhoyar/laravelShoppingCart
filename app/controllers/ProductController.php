@@ -91,4 +91,38 @@ class ProductController extends \BaseController {
         $product->save();
     }
 
+    public function addToCart($productId){
+        if(Auth::check()){
+            try{
+                $cartItem = new Cart();
+                $cartItem->userId = Auth::user()->id;
+                $cartItem->productId = $productId;
+                $cartItem->save();
+            }catch(Exception $e){
+                if($e->getCode() == 23000){
+                    return Redirect::route('login')->with('error',1);
+                }
+            }
+        }else{
+            return Redirect::route('login');
+        }
+    }
+
+    public function addToWishlist($productId){
+        if(Auth::check()){
+            try{
+                $wishlist = new Wishlist();
+                $wishlist->userId = Auth::user()->id;
+                $wishlist->productId = $productId;
+                $wishlist->save();
+            }catch(Exception $e){
+                if($e->getCode() == 23000){
+                    return Redirect::route('login')->with('error',1);
+                }
+            }
+        }else{
+            return Redirect::route('login');
+        }
+    }
+
 }

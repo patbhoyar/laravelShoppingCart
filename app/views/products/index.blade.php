@@ -10,11 +10,11 @@
                 <div class="productName"><h2>{{ link_to('product/'.$product->id, $product->name) }}</h2></div>
                 <div class="productRating"><h4>Rating : {{ number_format($product->rating, 1) }}</h4></div>
                 <div class="productDescription">{{ $product->description }}</div>
-                <div class="productPricing"><em><h4> <?php echo Util::calculateDiscount($product->price, $product->discount); ?> </h4></em></div>
+                <div class="productPricing"><em><h4>{{ Util::calculateDiscount($product->price, $product->discount) }}</h4></em></div>
                 <div>
                     <a href="product/{{ $product->id }}" class="btn btn-primary"><i class="glyphicon glyphicon-white glyphicon-zoom-in"></i> Buy Now</a>
-                    <a href="addToCart" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
-                    <a href="addtoWishList" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
+                    <a href="product/{{ $product->id }}/addToCart" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
+                    <a href="product/{{ $product->id }}/addToWishlist" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
                 </div>
             </div>
         </div>

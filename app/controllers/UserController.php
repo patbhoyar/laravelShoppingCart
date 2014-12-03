@@ -92,7 +92,16 @@ class UserController extends \BaseController {
     }
 
     public function displayCart(){
-        return View::make('users.cart', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_NONE));
+        if(Auth::check()){
+            $products = DB::table('carts')
+                ->leftjoin('products', 'carts.productId', '=', 'products.id')
+                ->where('userId', '=', Auth::user()->id)
+                ->select('products.id', 'products.name', 'products.price', 'products.image', 'products.discount')
+                ->get();
+        }else{
+            $products = array();
+        }
+        return View::make('users.cart', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_NONE, 'products' => $products));
     }
 
     public function processLogin(){
@@ -104,13 +113,26 @@ class UserController extends \BaseController {
         if (Auth::attempt($user)) {
             return Redirect::route('home');
         }else{
-            dd("hhh");
+            dd("Wrong Username/Password");
         }
     }
 
     public function processLogout(){
         Auth::logout();
         return Redirect::route('home');
+    }
+
+    public function displayWishlist(){
+        if(Auth::check()){
+            $products = DB::table('wishlist')
+                ->leftjoin('products', 'wishlist.productId', '=', 'products.id')
+                ->where('wishlist.userId', '=', Auth::user()->id)
+                ->select('products.id', 'products.name', 'products.price', 'products.image', 'products.discount')
+                ->get();
+        }else{
+            $products = array();
+        }
+        return View::make('users.cart', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_NONE, 'products' => $products));
     }
 
 }

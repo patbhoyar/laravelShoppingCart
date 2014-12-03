@@ -3,6 +3,18 @@
     height: 70px;
 }
 
+.removeFromCart{
+    height: 140px;
+    line-height: 65px !important;
+}
+
+#loginFormContainer{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 40px 20px;
+    background: #f9f9f9;
+}
+
 /*
 XS
 */
@@ -16,7 +28,11 @@ XS
 /*
 SM
 */
-@media(min-width:768px){}
+@media(min-width:768px){
+    .paddingForMenu{
+        height: 120px;
+    }
+}
 
 /*
 MD

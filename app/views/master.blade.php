@@ -66,7 +66,7 @@
                     <li class="{{ $contactActive }}"><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
 
-                <div class="navbar-text pull-right"> <a href="{{ route('cart') }}">Cart <span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">42</span></a></div>
+                <div class="navbar-text pull-right"> <a href="{{ route('cart') }}">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></div>
                 <?php
                     if(Auth::check()){
                 ?>
