@@ -9,9 +9,9 @@
 <div class="row">
     <table class="table">
         <thead>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th><h3>Product</h3></th>
+            <th><h3>Quantity</h3></th>
+            <th><h3>Price</h3></th>
             <th></th>
         </thead>
         @foreach($products as $product)
