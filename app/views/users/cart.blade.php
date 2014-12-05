@@ -7,6 +7,7 @@
 @section('pageContent')
 
 <div class="row">
+    @if(sizeof($products) > 0)
     <table class="table">
         <thead>
             <th><h3>Product</h3></th>
@@ -44,6 +45,9 @@
         <td class="col-lg-2 col-md-2 col-sm-2"></td>
         </tbody>
     </table>
+    @else
+    <h3 class="text-center">No products in your cart yet! <a href="{{ route('products') }}">Add some now</a> </h3>
+    @endif
 </div>
 
 @stop

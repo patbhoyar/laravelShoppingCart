@@ -98,6 +98,7 @@ class ProductController extends \BaseController {
                 $cartItem->userId = Auth::user()->id;
                 $cartItem->productId = $productId;
                 $cartItem->save();
+                return Redirect::route('cart');
             }catch(Exception $e){
                 if($e->getCode() == 23000){
                     return Redirect::route('login')->with('error',1);
@@ -115,6 +116,37 @@ class ProductController extends \BaseController {
                 $wishlist->userId = Auth::user()->id;
                 $wishlist->productId = $productId;
                 $wishlist->save();
+                return Redirect::route('wishlist');
+            }catch(Exception $e){
+                if($e->getCode() == 23000){
+                    return Redirect::route('login')->with('error',1);
+                }
+            }
+        }else{
+            return Redirect::route('login');
+        }
+    }
+
+    public function removeFromWishlist($productId){
+        if(Auth::check()){
+            try{
+                $prod = DB::table('wishlist')->where('userId', '=', Auth::user()->id)->where('productId', '=', $productId)->delete();
+                return Redirect::route('wishlist');
+            }catch(Exception $e){
+                if($e->getCode() == 23000){
+                    return Redirect::route('login')->with('error',1);
+                }
+            }
+        }else{
+            return Redirect::route('login');
+        }
+    }
+
+    public function removeFromCart($productId){
+        if(Auth::check()){
+            try{
+                $prod = DB::table('carts')->where('userId', '=', Auth::user()->id)->where('productId', '=', $productId)->delete();
+                return Redirect::route('cart');
             }catch(Exception $e){
                 if($e->getCode() == 23000){
                     return Redirect::route('login')->with('error',1);

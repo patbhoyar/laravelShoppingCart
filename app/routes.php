@@ -10,6 +10,8 @@ Route::get('products', array('as' => 'products', 'uses' => 'ProductController@in
 Route::get('/product/{id}', array('as' => 'product', 'uses' => 'ProductController@show'));
 Route::get('/product/{id}/addToCart', array('as' => 'addToCart', 'uses' => 'ProductController@addToCart'))->before('auth');
 Route::get('/product/{id}/addToWishlist', array('as' => 'addToWishlist', 'uses' => 'ProductController@addToWishlist'))->before('auth');
+Route::get('/product/{id}/removeFromCart', array('as' => 'removeFromCart', 'uses' => 'ProductController@removeFromCart'))->before('auth');
+Route::get('/product/{id}/removeFromWishlist', array('as' => 'removeFromWishlist', 'uses' => 'ProductController@removeFromWishlist'))->before('auth');
 
 // ======================== Categories ========================
 Route::get('/categories', array('as' => 'categories', 'uses' => 'CategoryController@index'));

@@ -132,7 +132,7 @@ class UserController extends \BaseController {
         }else{
             $products = array();
         }
-        return View::make('users.cart', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_NONE, 'products' => $products));
+        return View::make('users.wishlist', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_WISHLIST, 'products' => $products));
     }
 
 }

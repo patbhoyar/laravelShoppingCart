@@ -12,9 +12,9 @@
                 <div class="productDescription">{{ $product->description }}</div>
                 <div class="productPricing"><em><h4>{{ Util::calculateDiscount($product->price, $product->discount) }}</h4></em></div>
                 <div>
-                    <a href="product/{{ $product->id }}" class="btn btn-primary"><i class="glyphicon glyphicon-white glyphicon-zoom-in"></i> Buy Now</a>
-                    <a href="product/{{ $product->id }}/addToCart" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
-                    <a href="product/{{ $product->id }}/addToWishlist" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
+                    <a href="{{ route('product', $product->id) }}" class="btn btn-primary"><i class="glyphicon glyphicon-white glyphicon-zoom-in"></i> Buy Now</a>
+                    <a href="{{ route('addToCart', $product->id) }}" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
+                    <a href="{{ route('addToWishlist', $product->id) }}" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
                 </div>
             </div>
         </div>
