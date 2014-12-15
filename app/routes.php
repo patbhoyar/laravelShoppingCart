@@ -12,6 +12,7 @@ Route::get('/product/{id}/addToCart', array('as' => 'addToCart', 'uses' => 'Prod
 Route::get('/product/{id}/addToWishlist', array('as' => 'addToWishlist', 'uses' => 'ProductController@addToWishlist'))->before('auth');
 Route::get('/product/{id}/removeFromCart', array('as' => 'removeFromCart', 'uses' => 'ProductController@removeFromCart'))->before('auth');
 Route::get('/product/{id}/removeFromWishlist', array('as' => 'removeFromWishlist', 'uses' => 'ProductController@removeFromWishlist'))->before('auth');
+Route::get('/product/{id}/moveToCart', array('as' => 'moveToCart', 'uses' => 'ProductController@moveToCart'))->before('auth');
 
 // ======================== Categories ========================
 Route::get('/categories', array('as' => 'categories', 'uses' => 'CategoryController@index'));
@@ -32,7 +33,7 @@ Route::post('/signup', array('as' => 'signup', 'uses' => 'UserController@process
 
 
 // ======================== Wishlist ========================
-Route::get('wishlist', array('as' => 'wishlist', 'uses' => 'UserController@displayWishlist'));
+Route::get('wishlist', array('as' => 'wishlist', 'uses' => 'UserController@displayWishlist'))->before('auth');
 
 
 // ======================== Cart ========================

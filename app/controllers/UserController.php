@@ -123,16 +123,8 @@ class UserController extends \BaseController {
     }
 
     public function displayWishlist(){
-        if(Auth::check()){
-            $products = DB::table('wishlist')
-                ->leftjoin('products', 'wishlist.productId', '=', 'products.id')
-                ->where('wishlist.userId', '=', Auth::user()->id)
-                ->select('products.id', 'products.name', 'products.price', 'products.image', 'products.discount')
-                ->get();
-        }else{
-            $products = array();
-        }
-        return View::make('users.wishlist', array('title' => 'Your Shopping Cart', 'menuActive' => menuActive::MENU_WISHLIST, 'products' => $products));
+        $wishlist = Wishlist::getWishlist();
+        return View::make('users.wishlist', array('title' => 'Your Wishlist', 'menuActive' => menuActive::MENU_WISHLIST, 'products' => $wishlist));
     }
 
 }

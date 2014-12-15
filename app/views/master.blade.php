@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="http://localhost:8888/projects/laravelShoppingCart/public/css/signup.css"/>
     <script src="http://localhost:8888/projects/laravelShoppingCart/public/js/jquery.js" type="text/javascript"></script>
     <script src="http://localhost:8888/projects/laravelShoppingCart/public/js/bootstrap.min.js" type="text/javascript"></script>
+    <?php
+        if(isset($js) && sizeof($js) > 0){
+            foreach($js as $file){
+                echo "<script src='".asset('js/'.$file.'.js')."' type='text/javascript'></script>";
+            }
+        }
+    ?>
 </head>
 <body>
 

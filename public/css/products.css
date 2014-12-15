@@ -28,6 +28,12 @@
     color: #999;
 }
 
+
+/* WISHLIST VIEW */
+#noProdsInWishlist, #totalDisplayTable, #productsInWishlist{
+    display: none;
+}
+
 /* ======================= XS ======================= */
 @media(max-width:767px){
     .paddingForMenu{

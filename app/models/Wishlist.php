@@ -16,7 +16,31 @@ class Wishlist extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'wishlist';
 
+    public static function getWishlist($onlyIds = 0){
+        if(Auth::check()){
+            $data = array('products.id', 'products.name', 'products.price', 'products.image', 'products.discount');
+            $params = ($onlyIds == 1)?"products.id":$data;
+            $products = DB::table('wishlist')
+                ->leftjoin('products', 'wishlist.productId', '=', 'products.id')
+                ->where('wishlist.userId', '=', Auth::user()->id)
+                ->select($params)
+                ->get();
 
+            if($onlyIds == 1){
+                $wishlist = array();
+
+                foreach($products as $product){
+                    array_push($wishlist, $product->id);
+                }
+            }else{
+                $wishlist = $products;
+            }
+
+        }else{
+            $wishlist = array();
+        }
+        return $wishlist;
+    }
 
 
 }

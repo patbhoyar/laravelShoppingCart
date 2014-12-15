@@ -1,4 +1,7 @@
-<?php use library\Util; ?>
+<?php
+    use library\Util;
+    $js = array('wishlist');
+?>
 @extends('master')
 
 @section('pageContent')
@@ -14,7 +17,19 @@
             <div class="productPricing"><em><h4> <?php Util::calculateDiscount($product->price, $product->discount); ?> </h4></em></div>
             <div>
                 <a href="{{ route('addToCart', $product->id) }}" class="btn btn-warning"><i class="glyphicon glyphicon-white glyphicon-shopping-cart"></i> Add to Cart  </a>
-                <a href="{{ route('addToWishlist', $product->id) }}" class="btn btn-danger"><i class="glyphicon glyphicon-white glyphicon-heart"></i> Add to Wishlist  </a>
+
+                @if(in_array($product->id, $wishlist))
+                <a href="#" class="btn btn-success">
+                    <i class="glyphicon glyphicon-white glyphicon-ok"></i>
+                    <span>Item in Wishlist</span>
+                </a>
+                @else
+                <a href="#" class="btn btn-danger addProductToWishlist" data-product-id="{{ $product->id }}">
+                    <i class="glyphicon glyphicon-white glyphicon-heart"></i>
+                    <span>Add to Wishlist</span>
+                </a>
+                @endif
+
             </div>
         </div>
     </div>
